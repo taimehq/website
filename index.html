@@ -145,11 +145,11 @@
       <div class="container">
         <div class="section-head reveal">
           <span class="section-no">§ 01</span>
-          <h2>Three structural guarantees</h2>
+          <h2>Structural guarantees</h2>
         </div>
         <p class="section-lede reveal">
           Parallel agents are only useful if you can trust what they did.
-          In Taime, that trust isn't a habit. It's the architecture.
+          In Taime, that trust isn't a habit. It's baked into the architecture.
         </p>
 
         <div class="cards">
@@ -217,6 +217,24 @@
               </div>
             </figure>
           </article>
+
+          <article class="card reveal d-3">
+            <span class="card-label">04 · contention</span>
+            <h3>See who touched what</h3>
+            <p>
+              When two agents write to the same path, Taime surfaces it as contention:
+              a derived view over attribution, not a guess. You see the conflict before
+              it reaches review.
+            </p>
+            <figure class="card-art">
+              <div class="record">
+                <p><span class="k">path</span><span class="v" style="color:var(--amber)">src/auth/session.ts</span></p>
+                <p><span class="k">agents</span><span class="v">claude_code-8cce…</span></p>
+                <p><span class="k"></span><span class="v">grok_cli-77a1…</span></p>
+                <p><span class="k">status</span><span class="v" style="color:var(--amber)">⚠ contention · 2 writers</span></p>
+              </div>
+            </figure>
+          </article>
         </div>
       </div>
     </section>
@@ -271,7 +289,7 @@
       <div class="container">
         <div class="section-head reveal">
           <span class="section-no">§ 03</span>
-          <h2>One model, six nouns</h2>
+          <h2>One model, seven nouns</h2>
         </div>
         <p class="section-lede reveal">
           Taime is built on a small, strict vocabulary, the same canonical lexicon
@@ -283,8 +301,9 @@
             <div class="def"><dt>Workspace</dt><dd>The project root that scopes work.</dd></div>
             <div class="def"><dt>Task</dt><dd>A named unit of intent. Groups agents and runs. The unit of safe context switching.</dd></div>
             <div class="def"><dt>Agent</dt><dd>One AI worker: a profile running on a provider, with its own worktree and durable ID.</dd></div>
-            <div class="def"><dt>Orchestrator</dt><dd>An agent granted delegation: assign, hand off, message. Its delegations form a team.</dd></div>
-            <div class="def"><dt>Workflow</dt><dd>A reusable agent graph with branches and loops, executed as runs.</dd></div>
+            <div class="def"><dt>Runtime</dt><dd>The ephemeral PTY behind a live agent. Replaceable: survives app restarts, reattaches with an exact repaint.</dd></div>
+            <div class="def"><dt>Orchestrator</dt><dd>An agent whose profile grants MCP delegation tools: assign, hand off, message, request/reply. Its delegations form a team.</dd></div>
+            <div class="def"><dt>Workflow</dt><dd>A reusable Library definition: nodes, edges, loops. Each execution is a Run. Includes Council: an adversarial plan/critique/revise loop across multiple providers.</dd></div>
             <div class="def"><dt>Schedule</dt><dd>Cron-fired agents, attended by no one.</dd></div>
           </dl>
 
@@ -319,7 +338,7 @@
           <a class="btn btn-primary" href="#">Download for macOS</a>
           <a class="btn btn-ghost" href="https://github.com/taimehq/taime" target="_blank" rel="noopener">View on GitHub</a>
         </div>
-        <p class="cta-note">works with the CLIs you already use · claude · codex · gemini · grok</p>
+        <p class="cta-note">works with the CLIs you already have · Claude Code · Codex · Gemini CLI · Grok CLI</p>
       </div>
     </section>
   </main>
