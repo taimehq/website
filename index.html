@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Taime — the native multi-agent coding workspace</title>
+  <meta name="description" content="Taime runs the real Claude Code, Codex, Gemini, and Grok CLIs as agents in your repo — each in its own git worktree, every turn attributed, nothing merged without review." />
+  <meta property="og:title" content="Taime — the native multi-agent coding workspace" />
+  <meta property="og:description" content="Run a team of coding agents in isolated git worktrees, with full attribution and gated review. Native, daemon-backed, built on the real CLIs." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/geist-sans@5/400.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/geist-sans@5/500.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/geist-sans@5/600.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/geist-mono@5/400.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/geist-mono@5/500.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Taime home">
+        <svg class="mark" viewBox="0 0 32 32" width="22" height="22" aria-hidden="true">
+          <path d="M14 9.5 L21 16 L14 22.5" fill="none" stroke="var(--fg-4)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8.5 9.5 L15.5 16 L8.5 22.5" fill="none" stroke="var(--fg-0)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="wordmark">taime</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#guarantees">Guarantees</a>
+        <a href="#daemon">Daemon</a>
+        <a href="#model">The model</a>
+        <a class="btn btn-primary btn-sm" href="#download">Download</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============================== HERO ============================== -->
+    <section class="hero">
+      <div class="container">
+        <p class="kicker reveal">
+          <svg viewBox="0 0 32 32" width="15" height="15" aria-hidden="true">
+            <path d="M14 9.5 L21 16 L14 22.5" fill="none" stroke="var(--fg-4)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8.5 9.5 L15.5 16 L8.5 22.5" fill="none" stroke="var(--accent)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          the multi-agent coding workspace
+        </p>
+        <h1 class="reveal d-1">A native workspace for a<br /><em>team of coding agents.</em></h1>
+        <p class="lede reveal d-2">
+          Taime runs the real Claude&nbsp;Code, Codex, Gemini, and Grok CLIs as agents in
+          your repo — each in its own git worktree, every turn and diff attributed,
+          nothing merged without your review.
+        </p>
+        <div class="hero-actions reveal d-3">
+          <a class="btn btn-primary" href="#download">Download for macOS</a>
+          <a class="btn btn-ghost" href="#model">Read the model</a>
+        </div>
+
+        <!-- The workspace, miniature -->
+        <div class="window reveal d-4" role="img" aria-label="The Taime app: four agents working in parallel terminal panes">
+          <div class="window-bar">
+            <span class="traffic" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="window-title">taime — ~/projects/acme</span>
+            <span class="window-meta">task: auth-overhaul</span>
+          </div>
+          <div class="term-grid">
+            <div class="pane">
+              <div class="pane-head">
+                <span class="dot dot-accent pulse"></span>
+                <span class="pane-name">claude_code</span>
+                <span class="pane-branch">taime/claude_code-8ccec507</span>
+              </div>
+              <div class="pane-body">
+                <p class="ln ln-prompt">&gt; Refactor the auth middleware to use the new session API</p>
+                <p class="ln ln-accent">✻ Editing src/auth/middleware.ts<span class="dots"><i>.</i><i>.</i><i>.</i></span></p>
+                <p class="ln ln-faint">12 files touched · turn 7</p>
+                <p class="ln"><span class="cursor"></span></p>
+              </div>
+            </div>
+            <div class="pane">
+              <div class="pane-head">
+                <span class="dot dot-green"></span>
+                <span class="pane-name">codex</span>
+                <span class="pane-branch">taime/codex-3f21aa90</span>
+              </div>
+              <div class="pane-body">
+                <p class="ln ln-prompt">&gt; Write property tests for the config parser</p>
+                <p class="ln ln-green">✓ Turn 4 complete</p>
+                <p class="ln ln-faint"><span class="add">+182</span> <span class="del">−61</span> · awaiting review</p>
+              </div>
+            </div>
+            <div class="pane">
+              <div class="pane-head">
+                <span class="dot dot-amber"></span>
+                <span class="pane-name">gemini_cli</span>
+                <span class="pane-branch">taime/gemini_cli-c41d02be</span>
+              </div>
+              <div class="pane-body">
+                <p class="ln ln-prompt">&gt; Migrate CI config to the new runner</p>
+                <p class="ln ln-amber">? Needs your answer — choose a deployment target</p>
+              </div>
+            </div>
+            <div class="pane">
+              <div class="pane-head">
+                <span class="dot dot-accent pulse"></span>
+                <span class="pane-name">grok_cli</span>
+                <span class="pane-branch">taime/grok_cli-77a1f3d2</span>
+              </div>
+              <div class="pane-body">
+                <p class="ln ln-prompt">&gt; Hunt the flaky test in worker_pool</p>
+                <p class="ln ln-accent">✻ Running cargo test --workspace<span class="dots"><i>.</i><i>.</i><i>.</i></span></p>
+                <p class="ln ln-faint">3 files touched · turn 2</p>
+              </div>
+            </div>
+          </div>
+          <div class="window-status">
+            <span><i class="dot dot-green dot-xs"></i> daemon live</span>
+            <span>4 agents</span>
+            <span>4 worktrees · isolated</span>
+            <span class="status-right">2 diffs awaiting review</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ PROVIDERS ============================ -->
+    <section class="providers reveal">
+      <div class="container providers-inner">
+        <p class="providers-note">
+          Drives the official CLI binaries — never raw provider APIs — so your
+          subscriptions and every native capability stay intact.
+        </p>
+        <ul class="providers-list">
+          <li>&gt; claude_code</li>
+          <li>&gt; codex</li>
+          <li>&gt; gemini_cli</li>
+          <li>&gt; grok_cli</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- =========================== GUARANTEES =========================== -->
+    <section class="section" id="guarantees">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-no">§ 01</span>
+          <h2>Three structural guarantees</h2>
+        </div>
+        <p class="section-lede reveal">
+          Parallel agents are only useful if you can trust what they did.
+          In Taime, that trust isn't a habit — it's the architecture.
+        </p>
+
+        <div class="cards">
+          <article class="card reveal">
+            <span class="card-label">01 · worktree</span>
+            <h3>Isolation by default</h3>
+            <p>
+              Every agent launches into its own git worktree, forked from your repo
+              and kept outside it. Agents never step on each other's changes — or on
+              yours. The branch carries the agent's ID.
+            </p>
+            <figure class="card-art">
+              <svg viewBox="0 0 340 120" aria-hidden="true">
+                <path d="M16 60 H324" stroke="var(--ink-400)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M76 60 C 106 60, 106 28, 136 28 H 296" stroke="var(--fg-4)" stroke-width="1.5" fill="none"/>
+                <path d="M76 60 C 106 60, 106 92, 136 92 H 296" stroke="var(--fg-4)" stroke-width="1.5" fill="none"/>
+                <circle cx="76" cy="60" r="3.5" fill="var(--fg-3)"/>
+                <circle cx="296" cy="28" r="3.5" fill="var(--accent)"/>
+                <circle cx="296" cy="92" r="3.5" fill="var(--violet)"/>
+                <circle cx="324" cy="60" r="3.5" fill="var(--fg-3)"/>
+                <text x="150" y="20" class="svg-mono">taime/claude_code-8cce…</text>
+                <text x="150" y="114" class="svg-mono">taime/codex-3f21…</text>
+                <text x="16" y="50" class="svg-mono svg-dim">main</text>
+              </svg>
+            </figure>
+          </article>
+
+          <article class="card reveal d-1">
+            <span class="card-label">02 · attribution</span>
+            <h3>Every turn on the record</h3>
+            <p>
+              Work is recorded as turns — bounded spans with files touched and diffs —
+              keyed to a durable Agent&nbsp;ID that outlives the process. Provenance
+              persists after the agent exits.
+            </p>
+            <figure class="card-art">
+              <div class="record">
+                <p><span class="k">agent_id</span><span class="v">claude_code-8ccec507</span></p>
+                <p><span class="k">turn</span><span class="v">7 · completed</span></p>
+                <p><span class="k">files</span><span class="v">src/auth/middleware.ts</span></p>
+                <p><span class="k"></span><span class="v">src/auth/session.ts</span></p>
+                <p><span class="k">diff</span><span class="v"><span class="add">+182</span> <span class="del">−61</span></span></p>
+              </div>
+            </figure>
+          </article>
+
+          <article class="card reveal d-2">
+            <span class="card-label">03 · review</span>
+            <h3>Nothing merges without you</h3>
+            <p>
+              Per-file, per-hunk diffs, attributed to the agent that produced them.
+              Merge, revert, or mark reviewed — per agent or rolled up per task.
+              The gate is the point.
+            </p>
+            <figure class="card-art">
+              <div class="diff">
+                <p class="diff-file">src/auth/middleware.ts</p>
+                <p class="diff-del">- const token = req.headers["x-auth"];</p>
+                <p class="diff-add">+ const session = await sessions.resolve(req);</p>
+                <div class="diff-actions">
+                  <span class="chip chip-accent">Merge</span>
+                  <span class="chip">Revert</span>
+                  <span class="diff-attr">claude_code-8ccec507</span>
+                </div>
+              </div>
+            </figure>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= DAEMON ============================= -->
+    <section class="section section-band" id="daemon">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-no">§ 02</span>
+          <h2>Persistence</h2>
+        </div>
+        <div class="daemon-grid">
+          <div class="daemon-copy reveal">
+            <h3 class="statement">Agents outlive the app.</h3>
+            <p>
+              A detached session daemon owns the terminals, the attribution record,
+              and the schedule clock. Quit the app mid-run: agents keep working.
+              Reopen it: reattach to an exact repaint of the live terminal.
+            </p>
+            <p>
+              Schedules fire agents on cron with zero windows open — the daemon
+              is the substrate, the app is just a view.
+            </p>
+          </div>
+          <figure class="timeline reveal d-1" role="img" aria-label="Timeline: the app closes and reopens while the daemon and its agents run continuously">
+            <div class="lane">
+              <span class="lane-label">app</span>
+              <div class="lane-track">
+                <i class="seg" style="left:0%;width:34%"></i>
+                <i class="tick" style="left:34%"></i>
+                <i class="seg" style="left:72%;width:28%"></i>
+                <i class="tick" style="left:72%"></i>
+              </div>
+              <span class="lane-note" style="left:34%">closed</span>
+              <span class="lane-note" style="left:72%">reattach · exact repaint</span>
+            </div>
+            <div class="lane">
+              <span class="lane-label">daemon</span>
+              <div class="lane-track">
+                <i class="seg seg-live" style="left:0%;width:100%"></i>
+                <i class="event" style="left:55%"></i>
+              </div>
+              <span class="lane-note lane-note-accent" style="left:55%">02:00 — schedule fires</span>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ THE MODEL ============================ -->
+    <section class="section" id="model">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-no">§ 03</span>
+          <h2>One model, six nouns</h2>
+        </div>
+        <p class="section-lede reveal">
+          Taime is built on a small, strict vocabulary — the same canonical lexicon
+          the codebase reconciles against.
+        </p>
+
+        <div class="model-grid">
+          <dl class="defs reveal">
+            <div class="def"><dt>Workspace</dt><dd>The project root that scopes work.</dd></div>
+            <div class="def"><dt>Task</dt><dd>A named unit of intent. Groups agents and runs — the unit of safe context switching.</dd></div>
+            <div class="def"><dt>Agent</dt><dd>One AI worker: a profile running on a provider, with its own worktree and durable ID.</dd></div>
+            <div class="def"><dt>Orchestrator</dt><dd>An agent granted delegation — assign, hand off, message. Its delegations form a team.</dd></div>
+            <div class="def"><dt>Workflow</dt><dd>A reusable agent graph with branches and loops, executed as runs.</dd></div>
+            <div class="def"><dt>Schedule</dt><dd>Cron-fired agents, attended by no one.</dd></div>
+          </dl>
+
+          <pre class="tree reveal d-1" aria-label="Taime's canonical hierarchy"><span class="t-hero">DAEMON</span>          <span class="t-note">the persistent substrate</span>
+<span class="t-dim">├─</span> <span class="t-node">LIBRARY</span>       <span class="t-note">global, reusable definitions</span>
+<span class="t-dim">│  ├─</span> <span class="t-node">Profiles</span>       <span class="t-note">default · orchestrator · bug-fixer</span>
+<span class="t-dim">│  ├─</span> <span class="t-node">Workflows</span>      <span class="t-note">nodes · edges · loops</span>
+<span class="t-dim">│  └─</span> <span class="t-node">Schedules</span>      <span class="t-note">cron → fire an agent, unattended</span>
+<span class="t-dim">└─</span> <span class="t-node">WORKSPACE</span>     <span class="t-note">your project root</span>
+<span class="t-dim">   ├─</span> <span class="t-node">Task</span>           <span class="t-note">intent · open → in_review → done</span>
+<span class="t-dim">   ├─</span> <span class="t-node">Agent</span>          <span class="t-note">Profile × Provider</span>
+<span class="t-dim">   │  ├─</span> <span class="t-hero">AGENT ID</span>    <span class="t-note">durable identity — the pivot</span>
+<span class="t-dim">   │  │  ├─</span> <span class="t-node">Worktree</span>   <span class="t-note">isolated git checkout</span>
+<span class="t-dim">   │  │  ├─</span> <span class="t-node">Turns</span>      <span class="t-note">bounded spans of work</span>
+<span class="t-dim">   │  │  └─</span> <span class="t-node">Diffs</span>      <span class="t-note">persists after exit</span>
+<span class="t-dim">   │  └─</span> <span class="t-node">Runtime</span>     <span class="t-note">ephemeral PTY · replaceable</span>
+<span class="t-dim">   └─</span> <span class="t-node">Review</span>         <span class="t-note">merge · revert · mark reviewed</span></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================== CTA =============================== -->
+    <section class="cta" id="download">
+      <div class="container cta-inner reveal">
+        <svg class="cta-mark" viewBox="0 0 32 32" width="44" height="44" aria-hidden="true">
+          <path d="M14 9.5 L21 16 L14 22.5" fill="none" stroke="var(--fg-4)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8.5 9.5 L15.5 16 L8.5 22.5" fill="none" stroke="var(--fg-0)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h2>Bring a team of agents<br />to your repo.</h2>
+        <p>Native on macOS. One app, one daemon, no other runtime.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#">Download for macOS</a>
+          <a class="btn btn-ghost" href="#">View on GitHub</a>
+        </div>
+        <p class="cta-note">works with the CLIs you already use · claude — codex — gemini — grok</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-brand">&gt;&gt; taime</span>
+      <span class="footer-meta">Tauri v2 · Rust · React 19 — © 2026</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
