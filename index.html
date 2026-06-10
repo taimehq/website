@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Taime · the native multi-agent coding workspace</title>
-  <meta name="description" content="Taime runs the real Claude Code, Codex, Gemini, and Grok CLIs as agents in your repo — each in its own git worktree, every turn attributed, nothing merged without review." />
+  <meta name="description" content="Taime runs the real Claude Code, Codex, Gemini, and Grok CLIs as agents in your repo, each in its own git worktree, every turn attributed, nothing merged without review." />
   <meta property="og:title" content="Taime · the native multi-agent coding workspace" />
   <meta property="og:description" content="Run a team of coding agents in isolated git worktrees, with full attribution and gated review. Native, daemon-backed, built on the real CLIs." />
   <meta property="og:type" content="website" />
@@ -49,7 +49,7 @@
         <h1 class="reveal d-1">A native workspace for a<br /><em>team of coding agents.</em></h1>
         <p class="lede reveal d-2">
           Taime runs the real Claude&nbsp;Code, Codex, Gemini, and Grok CLIs as agents in
-          your repo — each in its own git worktree, every turn and diff attributed,
+          your repo, each in its own git worktree, every turn and diff attributed,
           nothing merged without your review.
         </p>
         <div class="hero-actions reveal d-3">
@@ -61,7 +61,7 @@
         <div class="window reveal d-4" role="img" aria-label="The Taime app: four agents working in parallel terminal panes">
           <div class="window-bar">
             <span class="traffic" aria-hidden="true"><i></i><i></i><i></i></span>
-            <span class="window-title">taime — ~/projects/acme</span>
+            <span class="window-title">taime · ~/projects/acme</span>
             <span class="window-meta">task: auth-overhaul</span>
           </div>
           <div class="term-grid">
@@ -98,7 +98,7 @@
               </div>
               <div class="pane-body">
                 <p class="ln ln-prompt">&gt; Migrate CI config to the new runner</p>
-                <p class="ln ln-amber">? Needs your answer — choose a deployment target</p>
+                <p class="ln ln-amber">? Needs your answer: choose a deployment target</p>
               </div>
             </div>
             <div class="pane">
@@ -128,7 +128,7 @@
     <section class="providers reveal">
       <div class="container providers-inner">
         <p class="providers-note">
-          Drives the official CLI binaries — never raw provider APIs — so your
+          Drives the official CLI binaries, never raw provider APIs, so your
           subscriptions and every native capability stay intact.
         </p>
         <ul class="providers-list">
@@ -149,7 +149,7 @@
         </div>
         <p class="section-lede reveal">
           Parallel agents are only useful if you can trust what they did.
-          In Taime, that trust isn't a habit — it's the architecture.
+          In Taime, that trust isn't a habit. It's the architecture.
         </p>
 
         <div class="cards">
@@ -158,7 +158,7 @@
             <h3>Isolation by default</h3>
             <p>
               Every agent launches into its own git worktree, forked from your repo
-              and kept outside it. Agents never step on each other's changes — or on
+              and kept outside it. Agents never step on each other's changes, or on
               yours. The branch carries the agent's ID.
             </p>
             <figure class="card-art">
@@ -181,7 +181,7 @@
             <span class="card-label">02 · attribution</span>
             <h3>Every turn on the record</h3>
             <p>
-              Work is recorded as turns — bounded spans with files touched and diffs —
+              Work is recorded as turns: bounded spans with files touched and diffs,
               keyed to a durable Agent&nbsp;ID that outlives the process. Provenance
               persists after the agent exits.
             </p>
@@ -201,7 +201,7 @@
             <h3>Nothing merges without you</h3>
             <p>
               Per-file, per-hunk diffs, attributed to the agent that produced them.
-              Merge, revert, or mark reviewed — per agent or rolled up per task.
+              Merge, revert, or mark reviewed per agent or rolled up per task.
               The gate is the point.
             </p>
             <figure class="card-art">
@@ -237,7 +237,7 @@
               Reopen it: reattach to an exact repaint of the live terminal.
             </p>
             <p>
-              Schedules fire agents on cron with zero windows open — the daemon
+              Schedules fire agents on cron with zero windows open. The daemon
               is the substrate, the app is just a view.
             </p>
           </div>
@@ -259,7 +259,7 @@
                 <i class="seg seg-live" style="left:0%;width:100%"></i>
                 <i class="event" style="left:55%"></i>
               </div>
-              <span class="lane-note lane-note-accent" style="left:55%">02:00 — schedule fires</span>
+              <span class="lane-note lane-note-accent" style="left:55%">02:00 · schedule fires</span>
             </div>
           </figure>
         </div>
@@ -274,16 +274,16 @@
           <h2>One model, six nouns</h2>
         </div>
         <p class="section-lede reveal">
-          Taime is built on a small, strict vocabulary — the same canonical lexicon
+          Taime is built on a small, strict vocabulary, the same canonical lexicon
           the codebase reconciles against.
         </p>
 
         <div class="model-grid">
           <dl class="defs reveal">
             <div class="def"><dt>Workspace</dt><dd>The project root that scopes work.</dd></div>
-            <div class="def"><dt>Task</dt><dd>A named unit of intent. Groups agents and runs — the unit of safe context switching.</dd></div>
+            <div class="def"><dt>Task</dt><dd>A named unit of intent. Groups agents and runs. The unit of safe context switching.</dd></div>
             <div class="def"><dt>Agent</dt><dd>One AI worker: a profile running on a provider, with its own worktree and durable ID.</dd></div>
-            <div class="def"><dt>Orchestrator</dt><dd>An agent granted delegation — assign, hand off, message. Its delegations form a team.</dd></div>
+            <div class="def"><dt>Orchestrator</dt><dd>An agent granted delegation: assign, hand off, message. Its delegations form a team.</dd></div>
             <div class="def"><dt>Workflow</dt><dd>A reusable agent graph with branches and loops, executed as runs.</dd></div>
             <div class="def"><dt>Schedule</dt><dd>Cron-fired agents, attended by no one.</dd></div>
           </dl>
@@ -296,7 +296,7 @@
 <span class="t-dim">└─</span> <span class="t-node">WORKSPACE</span>     <span class="t-note">your project root</span>
 <span class="t-dim">   ├─</span> <span class="t-node">Task</span>           <span class="t-note">intent · open → in_review → done</span>
 <span class="t-dim">   ├─</span> <span class="t-node">Agent</span>          <span class="t-note">Profile × Provider</span>
-<span class="t-dim">   │  ├─</span> <span class="t-hero">AGENT ID</span>    <span class="t-note">durable identity — the pivot</span>
+<span class="t-dim">   │  ├─</span> <span class="t-hero">AGENT ID</span>    <span class="t-note">durable identity · the pivot</span>
 <span class="t-dim">   │  │  ├─</span> <span class="t-node">Worktree</span>   <span class="t-note">isolated git checkout</span>
 <span class="t-dim">   │  │  ├─</span> <span class="t-node">Turns</span>      <span class="t-note">bounded spans of work</span>
 <span class="t-dim">   │  │  └─</span> <span class="t-node">Diffs</span>      <span class="t-note">persists after exit</span>
@@ -319,7 +319,7 @@
           <a class="btn btn-primary" href="#">Download for macOS</a>
           <a class="btn btn-ghost" href="#">View on GitHub</a>
         </div>
-        <p class="cta-note">works with the CLIs you already use · claude — codex — gemini — grok</p>
+        <p class="cta-note">works with the CLIs you already use · claude · codex · gemini · grok</p>
       </div>
     </section>
   </main>
@@ -327,7 +327,7 @@
   <footer class="footer">
     <div class="container footer-inner">
       <span class="footer-brand">&gt;&gt; taime</span>
-      <span class="footer-meta">Tauri v2 · Rust · React 19 — © 2026</span>
+      <span class="footer-meta">Tauri v2 · Rust · React 19 · © 2026</span>
     </div>
   </footer>
 
