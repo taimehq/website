@@ -289,7 +289,7 @@
       <div class="container">
         <div class="section-head reveal">
           <span class="section-no">§ 03</span>
-          <h2>One model, seven nouns</h2>
+          <h2>One model, six nouns</h2>
         </div>
         <p class="section-lede reveal">
           Taime is built on a small, strict vocabulary, the same canonical lexicon
@@ -300,8 +300,7 @@
           <dl class="defs reveal">
             <div class="def"><dt>Workspace</dt><dd>The project root that scopes work.</dd></div>
             <div class="def"><dt>Task</dt><dd>A named unit of intent. Groups agents and runs. The unit of safe context switching.</dd></div>
-            <div class="def"><dt>Agent</dt><dd>One AI worker: a profile running on a provider, with its own worktree and durable ID.</dd></div>
-            <div class="def"><dt>Runtime</dt><dd>The ephemeral PTY behind a live agent. Replaceable: survives app restarts, reattaches with an exact repaint.</dd></div>
+            <div class="def"><dt>Agent</dt><dd>One AI worker: a profile running on a provider, with its own worktree and durable ID. Its runtime is ephemeral and replaceable — the agent's record persists after the process exits.</dd></div>
             <div class="def"><dt>Orchestrator</dt><dd>An agent whose profile grants MCP delegation tools: assign, hand off, message, request/reply. Its delegations form a team.</dd></div>
             <div class="def"><dt>Workflow</dt><dd>A reusable Library definition: nodes, edges, loops. Each execution is a Run. Includes Council: an adversarial plan/critique/revise loop across multiple providers.</dd></div>
             <div class="def"><dt>Schedule</dt><dd>Cron-fired agents, attended by no one.</dd></div>
