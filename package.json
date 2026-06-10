@@ -1,0 +1,28 @@
+{
+  "name": "taime-website",
+  "version": "1.0.0",
+  "description": "Marketing site for [Taime](../taime), the native multi-agent coding workspace.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taimehq/website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taimehq/website/issues"
+  },
+  "homepage": "https://github.com/taimehq/website#readme",
+  "devDependencies": {
+    "vite": "^8.0.16"
+  },
+  "dependencies": {
+    "@fontsource/geist-mono": "^5.2.8",
+    "@fontsource/geist-sans": "^5.2.5"
+  }
+}
